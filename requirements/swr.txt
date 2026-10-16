@@ -1,0 +1,6 @@
+# Runtime dependency for Warp-based simulation and system identification.
+# PyTorch is provided by the PhysMind-v2 base environment.
+warp-lang==1.14.0
+numpy==1.26.4
+scipy==1.15.2
+scikit-image==0.25.2
