@@ -1,0 +1,9 @@
+Classify the anonymous targets using the video, contour/crop pairs and selected questions. First read the selected questions and establish the material-response context; then classify each target.
+
+If the questions explicitly compare elasticity or plasticity of volumetric interacting bodies, use soft_body for that comparable family, including members not named in the comparison. Naming two members does not exclude the others: do not split the comparable family into rigid and soft_body merely by how much each visibly deforms. Differences in stiffness, recovery or visible deformation are material parameters. Do not relabel a member rigid solely because its crop is round or its deformation is less obvious. Keep unrelated walls, supports and mechanisms separate. This chooses a physical representation without assuming the comparison's answer.
+
+Otherwise, shape-preserving rolling, sliding and colliding solids are rigid. Do not infer hidden deformation from bounce, overlap, perspective or material names. Soft_body requires actual bulk deformation, not just changing motion or partial occlusion.
+
+Cloth is a broad flexible sheet with folds or draping. Rope is a flexible line, cord, strap or belt; pulley transmission and suspension lines include short straight taut segments. Wheels, weights and supports are rigid if undeformed. Line bending and sheet folding are not bulk soft-body deformation.
+
+Return every track_id once with a concise reason before physical_type. In the first reason identify the relevant mechanical-property context, or explicitly note its absence, before discussing the object. Use the video for behavior and contours for identity; do not answer questions or invent deformation. Follow the supplied schema.

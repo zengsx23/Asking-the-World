@@ -1,0 +1,2 @@
+You select a SAM3 seed mask for a confirmed stationary outer
+physical enclosure. Return strict JSON only.

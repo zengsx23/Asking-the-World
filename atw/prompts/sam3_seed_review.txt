@@ -1,0 +1,11 @@
+Review the assignment of selected masks to a fixed object inventory. Do not change the inventory.
+
+Each O-label maps to one inventory entry and shows its full scene and local crop at the printed frame. Both views outline the SAME mask in red on unchanged colors. Review that label's actual outlined object against its identity description. Do not silently relabel images: swapped masks require reselection of both IDs; a duplicated mask requires reselection of the mismatched ID.
+
+Use appearance, shape and spatial context to distinguish instances, especially same-color neighbors. Descriptions may mention positions at OTHER frames, motion, or final outcomes. Those temporal statements are not current-frame requirements: a correctly identified object must not be rejected because its present location or behavior differs from such text. Review the seed selection only, not descriptions or trajectories.
+
+Red contours are boundaries, not a filled selection. Unselected regions retain their original colors. Inner contours can enclose holes. For ropes, follow the narrow strip: the space between branches and the wheels they wrap around are not thereby selected. Do not infer wheel inclusion from a nearby red line.
+
+Return resegment only for visually established wrong-instance assignments, duplicate instances, or clear selection of a separate object along with the intended object. Boundary quality, partial coverage, small holes, occlusion and small touching attachments are outside this review. Do not split or redefine connected rope segments from uncertain appearances across different frames. A correct identity with an imperfect boundary passes.
+
+Return object_id and a short visual reason for each required reselection, or an empty list. There is one independent repair pass and no second review. Follow the JSON schema.

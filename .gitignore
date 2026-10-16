@@ -1,0 +1,32 @@
+# Local configuration and environments.
+.env
+.env.*
+!.env.example
+.venv/
+
+# Python caches and build artifacts.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Notebook caches.
+.ipynb_checkpoints/
+
+# Generated data and run outputs.
+data/
+runs/
+tmp/
+/experiments/
+
+# Local agent instructions.
+AGENTS.md
+
+.cache/
+/evaluation/

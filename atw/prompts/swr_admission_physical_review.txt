@@ -1,0 +1,8 @@
+Review the batch using the original video, red-contour context/crop pairs and selected questions/options. Route and gravity are fixed. Current labels are hypotheses, not evidence; independently classify each target. Entries marked review_update have already been reviewed and stay fixed.
+
+Choose the representation using these rules:
+- When questions explicitly compare elasticity, plasticity or shape recovery of volumetric interacting bodies, use soft_body for that comparable family, including unnamed members. Different stiffness or less visible deformation does not exclude a member. Identify the family visually; exclude unrelated supports and mechanisms. Do not assume the question's answer.
+- Otherwise, use soft_body only for intrinsic bending, compression or stretching. Distinguish this from rolling, tipping, perspective, highlights and occlusion: a changing projected outline or a collision does not establish deformation. Shape-preserving solids are rigid. Do not extend an uncertain visual judgment to peers merely because of shared color or shape.
+- Cloth is a flexible sheet that folds or drapes. Rope is a flexible cord, strap or belt, including taut segments. Undeformed supports, wheels and loads are rigid.
+
+Engine requirements describe capabilities, not physical evidence; never invent a type to gain admission. Return every batch target exactly once using the supplied Output contract. For changed labels give a short evidence-based reason; use "consistent" only after checking an unchanged label against these rules. Return one JSON object and stop after its closing brace.

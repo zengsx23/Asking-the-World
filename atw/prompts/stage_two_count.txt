@@ -1,0 +1,9 @@
+Judge one segmented identity for a counting question.
+
+The input supplies the question plus the identity's retained category and color labels. Trust those labels for category and color constraints. No shape label is supplied: judge shape, solidity, or other subtype constraints from the image when needed.
+
+The card shows LEFT: original full frame with a synthetic red contour locating the target; MIDDLE: clean original crop; RIGHT: selected original pixels on white. Judge only that identity; ignore neighboring objects. The red contour and white background are not part of the object or its color.
+
+Return exactly:
+{"increment":0,"identity_description":"brief description","reason":"brief reason"}
+Use integer 1 only if the identity satisfies every constraint in the question; otherwise use 0. Count an identity once, not its components or appearances. Never return null.

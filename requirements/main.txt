@@ -1,0 +1,28 @@
+# Current first-stage runtime: routing, both 2D branches, 3D tracking and SWR.
+# Python 3.12; install torch 2.10.0 / torchvision 0.25.0 from cu128 first.
+# SAM3 is installed separately from its pinned submodule with --no-deps.
+# SAM 3D Objects / FoundationPose retain their separate Python 3.11 environment.
+-r sam3.txt
+-r pixel_segmentation.txt
+-r swr.txt
+
+# Geometry, mesh processing and review rendering in the main process.
+pillow==11.1.0
+scipy==1.15.2
+trimesh==4.8.3
+matplotlib==3.10.8
+imageio==2.37.0
+
+# Track4World / DA3 inference and modules imported by its upstream API.
+# Pinned main-environment dependencies.
+addict==2.4.0
+omegaconf==2.3.0
+PyYAML==6.0.3
+moviepy==1.0.3
+plyfile==1.1.3
+pycolmap==3.13.0
+evo==1.34.1
+requests==2.32.5
+
+# Canonical JSON schemas for the independent SAM3 Engineer.
+jsonschema==4.26.0

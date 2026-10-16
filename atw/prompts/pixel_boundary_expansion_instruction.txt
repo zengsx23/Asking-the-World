@@ -1,0 +1,7 @@
+The first SAM3 candidate round did not yield an acceptable
+mask for the confirmed stationary outer enclosure. Inspect the raw first frame and,
+when present, the rejected candidate sheet. Return strict JSON:
+{{"short_noun_phrases": ["up to 4 new concise singular prompts"], "reason": "..."}}.
+Every new prompt must describe the same complete visible enclosure, not an individual
+side, its empty interior, the background, or internal apparatus. Do not repeat any of
+these prompts: {tried}

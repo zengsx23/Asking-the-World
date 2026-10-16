@@ -1,0 +1,23 @@
+diff --git a/learning/training/predict_pose_refine.py b/learning/training/predict_pose_refine.py
+index fabb888..3681e1c 100644
+--- a/learning/training/predict_pose_refine.py
++++ b/learning/training/predict_pose_refine.py
+@@ -147,7 +147,7 @@ class PoseRefinePredictor:
+ 
+ 
+   @torch.inference_mode()
+-  def predict(self, rgb, depth, K, ob_in_cams, xyz_map, normal_map=None, get_vis=False, mesh=None, mesh_tensors=None, glctx=None, mesh_diameter=None, iteration=5):
++  def predict(self, rgb, depth, K, ob_in_cams, xyz_map, normal_map=None, get_vis=False, mesh=None, mesh_tensors=None, glctx=None, mesh_diameter=None, iteration=5, clear_cuda_cache=True):
+     '''
+     @rgb: np array (H,W,3)
+     @ob_in_cams: np array (N,4,4)
+@@ -234,7 +234,8 @@ class PoseRefinePredictor:
+       B_in_cams = torch.cat(B_in_cams, dim=0).reshape(len(ob_in_cams),4,4)
+ 
+     B_in_cams_out = B_in_cams@torch.tensor(tf_to_center[None], device='cuda', dtype=torch.float)
+-    torch.cuda.empty_cache()
++    if clear_cuda_cache:
++      torch.cuda.empty_cache()
+     self.last_trans_update = trans_delta
+     self.last_rot_update = rot_mat_delta
+ 

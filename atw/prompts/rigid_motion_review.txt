@@ -1,0 +1,7 @@
+Judge whether the red-outlined target is static or moving during the observed interval.
+
+You receive the full-scene contour video and a local multi-frame image of the same target. Read the local image left to right, then top to bottom; labels give original video times. All tiles use the SAME crop window and scale, so a real position change remains visible. The target is the body enclosed by the red contour, not another red-colored or neighboring object.
+
+Compare the target's body position and orientation across the local views, and check the video for movement between them. Any observed translation or rotation means moving, even if it later stops. Unchanged position and orientation means static. Ignore small contour jitter, lighting changes, and changing visible area when another object covers the target. Do not invent motion during hidden intervals or after the clips end.
+
+Return one JSON object matching the supplied schema. Give one short reason identifying the target and its observed displacement, rotation, or fixed position.

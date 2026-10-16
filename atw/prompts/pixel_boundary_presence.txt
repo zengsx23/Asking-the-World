@@ -1,0 +1,9 @@
+Inspect the original video and reference images for one stationary outer frame enclosing the fluid scene. This is a visual enclosure-presence decision, not a test of whether collisions with that frame occur in this clip.
+
+Return present when a visible, fixed outer frame surrounds the scene containing the fluid sources, obstacles, and receiving containers. Use the frame's visible sides, connected perimeter, and spatial relation to the enclosed scene as evidence. A stylized, flat, or decorative-looking frame still counts. Fluid need not touch the frame; collection by internal bins and lack of observed contact do not count against its presence. Do not require evidence that the frame stops or redirects fluid.
+
+Distinguish an actual visible frame from the video image's crop boundary: the image edges alone, a rectangular background area alone, or the fact that objects fit inside a rectangle are not sufficient evidence. Internal bins, sticks, and individual containers do not replace the outer frame. Small openings or local occlusion do not disqualify an otherwise clearly identifiable surrounding frame; do not invent unseen sides when the enclosure itself is ambiguous.
+
+Use absent when no visible surrounding frame is identifiable. Use uncertain when visibility is insufficient or disconnected/partial structures cannot clearly be identified as one surrounding frame. Do not use uncertain merely because the frame's collision behavior is unobserved. Evaluate the supplied scene independently; do not assume a frame exists from the dataset or questions.
+
+Return only {status:present|absent|uncertain,reason:short,evidence:[{frame:integer,observation:short}]}. Cite visible structure with valid frame indices; do not claim an unobserved collision. Do not return coordinates, polygons, boxes, dimensions, or a list of walls: geometry is measured separately. Questions provide context only; do not answer them.

@@ -1,0 +1,12 @@
+Select the candidate that best covers the visible material
+of the complete outer enclosure in frame 0. Media order is the raw frame followed by a
+candidate sheet. Candidate regions retain their original pixels while surroundings
+are dimmed; red contours are annotations. Reject candidates that select the empty
+workspace interior, background, fluid, emitters, containers, internal sticks, or only
+one side of a multi-sided enclosure. Prefer accurate visible enclosure pixels without
+large unrelated regions.
+
+Target description: {description}
+Candidates: {candidates}
+
+Return {{"candidate_id": "C00" or null, "confidence": 0..1, "reason": "..."}}.

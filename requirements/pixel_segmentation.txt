@@ -1,0 +1,7 @@
+# CPU-only pixel segmentation, physical-boundary fitting and H.264 review encoding.
+# No local model weights are required.
+numpy==1.26.4
+opencv-python-headless==4.11.0.86
+imageio-ffmpeg==0.6.0
+# Perceptual color distance for native Agentic liquid grouping.
+scikit-image==0.25.2

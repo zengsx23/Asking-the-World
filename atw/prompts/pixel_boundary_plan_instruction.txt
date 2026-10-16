@@ -1,0 +1,11 @@
+Plan prompts for the single stationary outer enclosure shown in
+the attached first frame. Use the prior presence decision only to disambiguate the
+target; independently inspect its visible appearance. Return:
+{{"description": "appearance and location of the outer enclosure",
+ "short_noun_phrases": ["2 to 4 concise singular text prompts"]}}.
+Each prompt must identify the same complete outer enclosure and be suitable for an
+open-vocabulary image segmenter. Do not request individual sides or the empty region
+inside the enclosure.
+
+Presence decision:
+{decision}

@@ -1,0 +1,7 @@
+List the concrete objects referred to by the question and all options, without answering or binding IDs. Return {"references":[{"reference":"complete object phrase","scope":"single"}]}.
+
+Preserve a referent's complete identifying phrase rather than splitting its modifier nouns into separate records. For example, "Which stick will the fluid from the other red emitter pass?" contributes "fluid from the other red emitter", plus concrete stick options; it contributes neither a separate "fluid" nor a separate "emitter". Only extract an emitter separately when an independent action targets it.
+
+Expand ellipsis: "the other" becomes "the other cloth" when cloth is the antecedent. Extract an event's concrete participant rather than the event: "the cylinder's entrance" becomes "the cylinder". Merge repeated phrases differing only by capitalization or "the". Use single for one object or an unqualified mass noun such as "orange fluid"; group for explicit plurals such as "other balls" or "sticks".
+
+Exclude non-objects entirely: pits, holes, gaps, destinations, scene labels, motion events, properties, posture options, bare pronouns and interrogative placeholders. For example, "Will the ball enter the left pit?" contributes only "the ball". Concrete objects mentioned in options still count. Do not decide whether a named object is visible.
