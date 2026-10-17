@@ -116,6 +116,12 @@ python scripts/evaluate.py \
 
 CLEVRER and ContPhy are scored separately, with accuracy, coverage and video-fallback statistics. See the [evaluation guide](docs/evaluation.md) for metrics and batch manifests.
 
+## Debug Visualization
+
+Scene rendering is a visual refinement step only and has no effect on benchmark
+evaluation or results. Rendering code can be adjusted to suit presentation needs
+without changing the underlying world models or probing outputs.
+
 ## Citation
 
 If you use ATW, please cite:
