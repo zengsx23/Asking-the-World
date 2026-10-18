@@ -14,8 +14,6 @@ import numpy as np
 from atw.polyworld.experiment_views import labeled_observation
 
 
-
-
 def read(path):
     return json.loads(Path(path).read_text())
 
@@ -26,8 +24,6 @@ def save(path, value):
 
 
 class SceneEvidence:
-
-
 
 
     def _ids(self, values):
@@ -46,9 +42,6 @@ class SceneEvidence:
         if isinstance(sample_count, bool) or int(sample_count) != sample_count or not 1 <= sample_count <= 32:
             raise ValueError("sample_count must be an integer from 1 to 32")
         return start, end, int(sample_count)
-
-
-
 
 
     def inspect_frames(self, frame_indices, object_id=None, *, identity_view=False):
@@ -257,7 +250,7 @@ class SceneEvidence:
                 if self.engine == "fluid":
                     np.savez_compressed(directory / "particles.npz", birth=result["particle_birth"], fluid=result["particle_fluid"])
             outcomes = {name:self.query_trajectory(name,rollout_id,sample_count=3)["samples"] for name in result["trajectories"]}
-            detail_tools = ("inspect_fluid_rollout with the question's target material ID; it renders only that liquid while all liquids remain in the simulation"
+            detail_tools = ("query_fluid_destination with the question's bound material ID for numerical destination evidence"
                             if self.engine == "fluid" else
                             "query_world for scene contact, named regions, pose and motion; query_trajectory for detail")
             summary = dict(source_kind="new_simulation", rollout_id=rollout_id, end_seconds=self._rollout_end(result),
@@ -680,11 +673,6 @@ class SceneEvidence:
             movement_interpretation=("Pulley movement means center translation. Rotation without "
                 "center translation is rotation only and is not pulley movement."))
 
-    def inspect_rollout(self, rollout_id, start_seconds=None, end_seconds=None, option_id=None,
-                        object_labels=None):
-        from atw.polyworld.experiment_views import render_rollout_video
-        return render_rollout_video(self, rollout_id, start_seconds, end_seconds,
-                                    object_labels=object_labels)
 
     def inspect_material_response(self, object_ids, property_name):
         from atw.polyworld.material_response import inspect_material_response
@@ -698,14 +686,6 @@ class SceneEvidence:
         from atw.polyworld.clevrer_evidence import event_path
         return event_path(self, **arguments)
 
-    def inspect_fluid_rollout(self, rollout_id, object_id, start_seconds=None, end_seconds=None,
-                              option_id=None, object_labels=None):
-        from atw.polyworld.experiment_views import render_fluid_rollout
-        result = render_fluid_rollout(self, rollout_id, object_id, start_seconds, end_seconds,
-                                      object_labels=object_labels)
-        if option_id is not None:
-            result["option_id"] = option_id
-        return result
 
     def query_events(self, rollout_id, object_ids=None, start_seconds=0., end_seconds=None):
         from atw.polyworld.swr_measurements import event_verdict

@@ -118,9 +118,22 @@ CLEVRER and ContPhy are scored separately, with accuracy, coverage and video-fal
 
 ## Debug Visualization
 
-Scene rendering is a visual refinement step only and has no effect on benchmark
-evaluation or results. Rendering code can be adjusted to suit presentation needs
-without changing the underlying world models or probing outputs.
+Generate debug views from a completed run with one command. Existing segmentation,
+reconstruction/tracking and depth views retain their rendering; fitted SWR scenes
+automatically use the refined renderer for their engine.
+
+```bash
+CUDA_VISIBLE_DEVICES=0 python scripts/render_debug.py \
+  --run-dir /path/to/completed-atw-run \
+  --output-dir /path/to/new-debug \
+  --blender /path/to/blender --device gpu --workers 4
+```
+
+Install `requirements/visualization.txt` in the existing environment and Blender
+4.5 for mesh and particle rendering. See [inputs and options](docs/refined-visualization.md).
+
+Rendering can be adjusted for development or presentation needs. It reads saved
+assets without changing world models, probing inputs or benchmark evaluation results.
 
 ## Citation
 

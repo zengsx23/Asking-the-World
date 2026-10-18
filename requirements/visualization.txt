@@ -1,0 +1,6 @@
+# Optional offline presentation. Blender 4.5 is a separate executable.
+numpy
+opencv-python
+scipy
+trimesh
+imageio-ffmpeg
